@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  sftp:
+    image: atmoz/sftp
+    container_name: sftp-server
+    ports:
+      - "2222:22"
+    volumes:
+      - ./sftp-data:/home/foo/upload
+    command: foo:pass:1001
+    restart: always
+
+  postgres:
+    image: postgres:14
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: your_pg_user
+      POSTGRES_PASSWORD: your_pg_password
+      POSTGRES_DB: your_pg_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # optional
+    restart: always
+
+volumes:
+  pgdata:
