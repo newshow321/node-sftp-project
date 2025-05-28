@@ -1,0 +1,17 @@
+{
+  "name": "sftp-csv-importer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "pg": "^8.16.0",
+    "ssh2-sftp-client": "^12.0.0"
+  }
+}
